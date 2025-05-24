@@ -1,2 +1,3 @@
 * xref:index.adoc[]
 * xref:keshav.adoc[]
+* xref:pages:inji-web/build-and-deployment/local-setup.adoc[Local Setup]
