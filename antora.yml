@@ -1,0 +1,6 @@
+name: ant-inji-wallet-web
+title: Inji Wallet Web
+version: ~ main
+nav:
+- modules/ROOT/nav.adoc
+- modules/module-one/nav.adoc
