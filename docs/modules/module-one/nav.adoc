@@ -1,2 +1,2 @@
-** xref:module-one:inji-wallet/inji-mobile/build-and-deployment/local-setup.adoc[Local Setup]
-* xref:module-one:inji-wallet/inji-mobile/build-and-deployment/local-setup.adoc[Local Setup - Markdown]
+# ** xref:module-one:inji-wallet/inji-mobile/build-and-deployment/local-setup.adoc[Local Setup]
+# * xref:module-one:inji-wallet/inji-mobile/build-and-deployment/local-setup.adoc[Local Setup - Markdown]
