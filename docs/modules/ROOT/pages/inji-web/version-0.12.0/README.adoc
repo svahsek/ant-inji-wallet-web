@@ -1,0 +1,127 @@
+= Version 0.12.0
+
+_Release Name:_ Inji Web 0.12.0
+
+_Release Type:_ Developer
+
+_Release Date:_ 8th April, 2025
+
+=== _Overview_
+
+This release delivers significant enhancements to the Inji Web Wallet experience, focusing on dynamic authorization configuration, improved credential PDF generation, support for multi-lingual templates, and a basic revamped homepage UI. These updates aim to streamline user interactions and offer a more visually enriched and localized interface.
+
+=== _Major Highlights/Features_
+
+==== _Authorization Endpoint Discovery through Auth Server Well-Known_
+
+_Feature_: Dynamic Authorization Endpoint Retrieval\
+Inji Web now dynamically retrieves the authorization\_endpoint from the authorization server’s .well-known configuration, aligning with OAuth standards.
+
+==== _Key Enhancements_:
+
+_ _Dynamic Retrieval*: Automatically fetches authorization\_endpoint during issuer selection.
+_ _Backend Caching*: Calls handled via backend (mimoto) to avoid CORS issues and cache responses with configurable expiry using Spring Cache.
+_ _New Endpoint Introduced*: /issuers/{issuer-id}/configuration for fetching issuer and authorization config.
+_ _Deprecated*: /issuers/{issuer-id}/well-known-proxy (scheduled for removal in next release).
+_ _Code Optimization*: Clean-up of issuer controller and service files for better maintainability.
+
+==== _New PDF Template Implementation for Existing Use-Cases_
+
+_Overview_:\
+A revamped PDF template is now used for National ID & TAN ID credential downloads use-cases, improving aesthetics, branding, and usability.
+
+_Key Features_:
+
+_ _Professional Layout*: Modern design with clean visuals and prominent placement of credential details.
+_ _Prominent QR Code*: Displayed clearly on a single page for ease of scanning and offline validation.
+_ _Backward Compatible*: Compatible with v1.1 Verifiable Credential (VC) format.
+_ _Reusable Template*: Modular design allows easy adaptation for future use-cases like driver’s license, education credentials, etc.
+
+_Implementation Highlights_:
+
+* Built with HTML for rendering consistency.
+* Validated across platforms and devices.
+* Use-case specific tailoring (e.g., National ID, TAN ID).
+* QR readability verified via Inji Verify.
+
+==== _Multi-Lingual Support for Credential PDF Generation_
+
+_Feature Overview_:\
+Credential PDFs can now be generated in multiple languages using locale-specific templates and resources.
+
+_Key Enhancements_:
+
+_ _API Update*: Added locale parameter in credential generation APIs.
+_ _Localized Templates*:
+  _ _Template Loading*: We load templates based on the combination of `issuerId` and `credentialType`, not based on language or locale.
+  _ _Label Localization in PDF_: In the generated PDF, the labels for `displayProperties` will appear in the selected locale _if it is supported by the issuer_. If not, the system will default to using the _first available locale* defined in the `displayProperties`.\
+
+_ _Code Updates*:
+  * Enhanced CredentialController, CredentialService, and CredentialServiceImpl for locale handling.
+  * Utility methods updated for template resolution.
+_ _Testing*:
+  * Unit tests for locale logic.
+  * End-to-end multilingual credential generation verified.
+
+_Stoplight API_ - [https://mosip.stoplight.io/docs/mimoto/wb8oczgyliz0y-mimoto](https://mosip.stoplight.io/docs/mimoto/wb8oczgyliz0y-mimoto)
+
+=== _Enhancements_
+
+_UI Enhancements on the Inji Web Home Page_
+
+* Improved homepage experience with a cleaner layout and branding refresh.
+* Optimized for responsiveness across devices.
+
+=== _Bugs Fixes_
+
+As part of the _0.12.0 release_, the following issue has been addressed:
+
+| _Jira issue_                                                       | _Issue description_                                                                                  |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| [_Inji Web-760_](https://mosip.atlassian.net/browse/INJIWEB-760)   | Inji Web - There is no background image for downloading the VC PDF in Inji Web                         |
+| [_Inji Web-964_](https://mosip.atlassian.net/browse/INJIWEB-964)   | Inji Web:Some places number and "full stop"/period are missing in FAQ section                          |
+| [_Inji Web-1149_](https://mosip.atlassian.net/browse/INJIWEB-1149) | Inji Web: Borders for share visibility page are missing in tablet portrait mode                        |
+| [_Inji Web-1189_](https://mosip.atlassian.net/browse/INJIWEB-1189) | Inji Web: toast message "coming soon" coming multiple times, if the user clicks on "Click Here" button |
+| [_Inji Web-1191_](https://mosip.atlassian.net/browse/INJIWEB-1191) | Inji Web: there is a typo at "Download with Confidence Save your important documents instantly"        |
+| [_Inji Web-1192_](https://mosip.atlassian.net/browse/INJIWEB-1192) | Inji Web -The language has not been translated into the selected language for some page                |
+| [_Inji Web-1433_](https://mosip.atlassian.net/browse/INJIWEB-1433) | Fix the issues noticed in the inji web and mimoto during the download flow                             |
+
+=== _Known Open Bugs_
+
+The list of known issues can be found [_here_](https://mosip.atlassian.net/issues/?jql=project%3D%22Inji%20Web%22%20and%20type%20in%20%28bug%29%20and%20status%20not%20in%20%28closed%2C%20canceled%29%20order%20by%20created%20DESC)_._
+
+| _Jira issue_                                                       | _Issue description_                                                                       |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| [_Inji Web-1508_](https://mosip.atlassian.net/browse/INJIWEB-1508) | Inji Web: "Restricted Use Area" displayed in QR code page,better to adjust it in first page |
+| [_Inji Web-1503_](https://mosip.atlassian.net/browse/INJIWEB-1503) | Inji Web: "cut here" appeared inside the "terms and conditions" section                     |
+| [_Inji Web-1500_](https://mosip.atlassian.net/browse/INJIWEB-1500) | Inji Web: no.of field values in VC document and scanned document are not the same           |
+| [_Inji Web-1499_](https://mosip.atlassian.net/browse/INJIWEB-1499) | Inji Web: getting "did" details in the scan document                                        |
+| [_Inji Web-1498_](https://mosip.atlassian.net/browse/INJIWEB-1498) | Inji Web: The QR code size on the VC PDF is too small to scan                               |
+| [_Inji Web-1496_](https://mosip.atlassian.net/browse/INJIWEB-1496) | Inji Web: while verifying VC from injiverify, data is not rendered in the VC lang           |
+
+=== _Repositories Released_
+
+| _Repositories_ | _Tags Released_                                              |
+| ---------------- | -------------------------------------------------------------- |
+| _Inji Web_     |  [_v0.12.0_](https://github.com/mosip/inji-web/tree/v0.12.0) |
+| _Inji Config_  | [_v0.7.0_](https://github.com/mosip/inji-config/tree/v0.7.0) |
+| _Mimoto_       | [_v0.17.0_](https://github.com/mosip/mimoto/tree/v0.17.0)    |
+
+=== _Compatible Modules_
+
+The following table outlines the tested and certified compatibility of _Inji Web 0.12.0_ with other modules.
+
+| _Module_             | _Version_                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| _eSignet_            | [_1.4.1_](https://github.com/mosip/esignet/tree/v1.4.1)                      |
+| _Inji Verify_        | [_0.11.0_](https://github.com/mosip/inji-verify/tree/v0.11.0)                |
+| _Inji Certify_       | [_0.10.2_](https://github.com/mosip/inji-certify/tree/v0.10.2)               |
+| _durian(data share)_ | [_v1.3.0-beta.2_](https://github.com/mosip/durian/releases/tag/1.3.0-beta.2) |
+
+=== Documentation
+
+_ [_Build and Deployment*](../../build-and-deploy/)
+_ [_Feature Documentation*](https://docs.mosip.io/inji/inji-web/functional-overview/features)
+_ [_User Guide*](https://docs.mosip.io/inji/inji-web/functional-overview/end-user-guide)
+_ [_QA Report*](https://docs.inji.io/inji-wallet/inji-web/inji-web/version-0.12.0/test-report)
+_ [_API Documentation*](https://docs.mosip.io/inji/inji-web/technical-overview/backend-services/mimoto-bff)

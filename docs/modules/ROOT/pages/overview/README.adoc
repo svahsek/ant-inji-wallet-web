@@ -1,0 +1,101 @@
+:page-icon: house
+
+= Overview
+
+____
+ _Inji Web isn't just a web interface – it's a bridge to digital inclusion, enabling secure and seamless access to digital identity and credentials, even without a smartphone. Built to support open and equitable digital ecosystems for everyone._
+____
+
+Inji Web, akin to the [Inji Wallet](https://docs.mosip.io/inji/inji-mobile-wallet/overview), is an open-source, standards-compliant web-based wallet that enables users to _securely download, manage, and share Verifiable Credentials (VCs)_ through a web interface. This easy-to-use platform enables users to access and store their credentials, ensuring confident presentation to service providers for verification and service access, with ease and reliability. Rooted in the principles of inclusivity, it empowers individuals to access benefits or services, even without smartphones.
+
+_Inji Web_ is a reference implementation which can be adopted by _ecoystem partners, countries, system integrators (SIs),goverments and organizations_—built _with_ the community.
+
+* _Service Providers_ can extend, customize, or white-label the solution  
+* _Governments_ can deploy it for inclusive, public-facing identity journeys  
+* _Developers_ can contribute, fork, and innovate to suit local needs
+
+
+It’s ideal for communities with limited smartphone access and ensures full interoperability with open digital identity ecosystems using:
+
+=== Core Design Principles
+
+* _Web Accessibility for All_  
+  Full credential access via desktop or shared devices.
+
+* _Standard-Compliant Architecture_  
+  Based on OpenID4VCI, W3C VC Data Model, SD-JWT (in progress), and OpenID4VP (upcoming).
+
+* _User-Controlled Credential Sharing_  
+  Complete control over how, when, and with whom to share.
+
+* _Modular and Configurable Login System_  
+  Supports Google and other OpenID-compliant IdPs.
+
+* _Trustworthy Credential Lifecycle_  
+  Credentials are digitally signed by issuers, tamper-evident, and easily verifiable.
+
+=== Capabilities Snapshot
+
+* _Login with Any IdP_  
+  Access your wallet using Google or any OpenID-compliant Identity Provider.
+
+* _Download from Trusted Issuers_  
+  Select an issuer, enter UIN/VID/Registration Number or any unique identifier, and securely download credentials.
+
+* _Web Wallet Storage (Post-login)_  
+  Credentials are stored in your secure, logged-in web wallet session—enabling access across sessions and devices, depending on configuration.
+
+* _Local Storage Support_  
+  Optionally download credentials as digitally signed PDFs with embedded QR codes for offline use or physical copies.
+
+* _Easy Credential Sharing_  
+  Share credentials via QR code scan, PDF upload, or printed presentation.
+
+* _Interoperability with Verifiers_  
+  Fully compatible with Inji Verify and other OpenID4VP-compliant verifier portals.
+
+* _Flexible Identity Inputs_  
+  Authenticate using UIN, Date of Birth, or Registration Number for credential retrieval.
+
+
+=== How It Works
+
+. _Login & Onboarding_  
+   Authenticate via Google or another OpenID-compliant IdP.
+
+. _Choose Issuer & Credential_  
+   Select from available issuers and credential types.
+
+. _Authenticate Identity_  
+   Provide UIN, Date of Birth, or Registration Number.
+
+. _Download Credential_  
+   Receive a digitally signed PDF with an embedded QR code.
+
+. _Share Credential_  
+   * Upload PDF on the verifier portal  
+   * Scan QR code  
+   * Present printed credential
+  
+. _Use as Guest (No Login)_
+   Skip login using Guest Mode — no IdP required.  
+   * Direct credential download only (no storage in web wallet).
+
+=== Sneak Peek: Upcoming Features
+
+* W3C VC Data Model 2.0 Support  
+* SVG-based Credential Templates  
+* Selective Disclosure via SD-JWT  
+* Presentation During Issuance  
+* Credential Revocation
+
+=== Technology and Integration
+
+Inji Web interacts with:
+
+* [Mimoto APIs](https://mosip.stoplight.io/docs/mimoto/5bf5a1n68g4tq-mimoto) for managing issuers details, facilitate VC download and generate PDF
+* [eSignet APIs](https://mosip.stoplight.io/docs/identity-provider/jlmszj6dlxigw-e-signet) for authentication
+
+=== Get Involved
+
+For any queries, contributions, or to collaborate, join us on the [Inji community forum](https://community.mosip.io/c/inji/16) or raise a PR via the [GitHub repository](https://github.com/mosip/inji-web).

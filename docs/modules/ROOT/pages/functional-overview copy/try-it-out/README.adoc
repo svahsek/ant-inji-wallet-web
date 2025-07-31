@@ -1,0 +1,10 @@
+= Try It Out
+
+Explore and experiment with Inji Web's features in our Collab sandbox environment. Test out the functionalities, explore integrations, and innovate with us.
+
+Refer [_Inji Web Collab Guide_](inji-web-setup-guide.adoc) to know more about how you can explore '_Inji Web_' in our 'sandbox collab environment'.
+
+
+
+\
+\

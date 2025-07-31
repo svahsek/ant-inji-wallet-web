@@ -1,0 +1,79 @@
+= Version 0.10.0
+
+_Release Name:_ Inji Web 0.10.0
+
+_Support:_ Developer
+
+_Release Date:_ 16th October, 2024
+
+=== Overview
+
+We are pleased to announce the release of Inji Web Version 0.10.0! This release introduces exciting new features, including the effortless sharing of Verifiable Credentials via a QR code embedded directly within the credential PDF, making sharing smoother than ever! This feature empowers users to quickly share their credentials with service providers, ensuring a seamless and secure verification process in online mode.
+
+==== _Key highlights include:_
+
+_ _Online Sharing Feature*: Introducing seamless online sharing of Verifiable Credentials through integration with Data Share and Inji Verify modules, ensuring quick and secure sharing between users and verifiers.
+_ _Compliance with OpenID4VCI Draft 13*: Full support for the Draft 13 changes of the OpenID4VCI specification, aligning Inji Web with the latest standards for Verifiable Credentials.
+_ _Integration with Certify & eSignet*: Streamlined credential issuance through Inji Certify and eSignet authentication, enabling smoother, secure interactions with trusted credential issuers.
+
+==== _Features Covered:_
+
+Below are the key features as part of this release:
+
+_ _Online Sharing*:\
+  Verifiable Credentials can now be easily shared online using the QR Code on the credential PDF. This feature is dependent on integrations with the Data Share and Inji Verify modules, ensuring a secure and convenient mechanism for sharing credentials.
+_ _Draft 13 Changes for OpenID4VCI*:\
+  Inji Web now adheres to the latest Draft 13 of the OpenID4VCI spec, making it fully compatible with the most recent standards in credential issuance and verification.
+_ _Integration with Certify and eSignet*:
+  _ _Authentication*: eSignet is integrated for user authentication, providing a robust and secure method to authenticate and authorize users in compliance with OpenID4VCI.
+  _ _Credential Issuance*: Inji Certify is responsible for issuing credentials by the new standards, ensuring a smooth issuance process after successful authentication.
+
+=== _Repositories Released:_
+
+| _Repositories_    | _Tags Released_                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------ |
+| inji-web            | [_v0.10.0_](https://github.com/mosip/inji-web/tree/v0.10.0)                        |
+| mimoto              | [_v0.14.0_](https://github.com/mosip/mimoto/tree/v0.14.0)                          |
+| inji-config         | [_v0.3.0_](https://github.com/mosip/inji-config/tree/v0.3.0)                       |
+| durian(data share)  | [_v1.3.0-beta.1_](https://github.com/mosip/durian/tree/v1.3.0-beta.1)              |
+| mosip-openid-bridge | [_v1.3.0-beta.1_](https://github.com/mosip/mosip-openid-bridge/tree/v1.3.0-beta.1) |
+| khazana             | [_v1.3.0-beta.1_](https://github.com/mosip/khazana/tree/v1.3.0-beta.1)             |
+| bio-utils           | [_v1.3.0-beta.1_](https://github.com/mosip/bio-utils/tree/v1.3.0-beta.1)           |
+
+=== _Compatible Modules:_
+
+The following table outlines the tested and certified compatibility of Inji Web 0.10.0 with other modules.
+
+| _Module_   | _Version_                                                     |
+| ------------ | --------------------------------------------------------------- |
+| eSignet      | [_1.4.1_](https://github.com/mosip/esignet/tree/v1.4.1)       |
+| Inji Verify  | [_0.10.0_](https://github.com/mosip/inji-verify/tree/v0.10.0) |
+| Inji Certify | [_0.9.1_](https://github.com/mosip/inji-certify/tree/v0.9.1)  |
+
+
+
+=== _Bugs/Security Fixes_
+
+==== _Known Open Bugs_
+
+Below is the list of _known_ issues. To read in detail click [_here_](https://mosip.atlassian.net/issues/?jql=project%3D%22Inji%20Web%22%20and%20type%20in%20%28bug%29%20and%20status%20not%20in%20%28closed%2C%20canceled%29%20order%20by%20created%20DESC)_._
+
+| _Jira ID_                                                       | _Description_                                                                                                                                 |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [_INJIWEB-627_](https://mosip.atlassian.net/issues/INJIWEB-627) | Inji Verify: Getting "No MultiFormat Readers were able to detect the QR code." error when the VC PDF from the inji web application is uploaded. |
+| [_INJIWEB-599_](https://mosip.atlassian.net/browse/INJIWEB-599) | Inji-web: Getting invalid credentials error message for valid data, when we leave the authentication page idle for sometime                     |
+| [_INJIWEB-594_](https://mosip.atlassian.net/browse/INJIWEB-594) | Injiweb: If the browser zoom-in increases then the some of options are not visible                                                              |
+| [_INJIWEB-593_](https://mosip.atlassian.net/browse/INJIWEB-593) | INJIWEB: After navigating to the Issuer type page, the close/back button is missing in the eSignet page                                         |
+| [_INJIWEB-590_](https://mosip.atlassian.net/browse/INJIWEB-590) | Injiweb: credential strings are not properly displayed for different dimensions under mosip issuer                                              |
+| [_INJIWEB-570_](https://mosip.atlassian.net/browse/INJIWEB-570) | Inji-web: If the filed values are not provided during policy creation, in downloaded VC getting expressions directly                            |
+| [_INJIWEB-568_](https://mosip.atlassian.net/browse/INJIWEB-568) | Inji-web: Observed access violation when "IBM Equal Access Accessibility Checker" executed on inji-web portal                                   |
+| [_INJIWEB-290_](https://mosip.atlassian.net/browse/INJIWEB-290) | Inji-web: The QR code is not working on the VC card                                                                                             |
+| [_INJIWEB-180_](https://mosip.atlassian.net/browse/INJIWEB-180) | Inji-web: Not getting proper error message when the website is down                                                                             |
+
+=== Documentation
+
+* [Feature documentation](../../overview/features.adoc)
+* [User guide](../../functional-overview/end-user-guide.adoc)
+* [QA Report](test-report.adoc)
+* [API Documentation](https://docs.mosip.io/inji/inji-web/technical-overview/backend-services/mimoto-bff)
+
