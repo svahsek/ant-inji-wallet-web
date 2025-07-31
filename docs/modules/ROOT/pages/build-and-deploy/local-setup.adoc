@@ -1,23 +1,16 @@
-== Local setup
+= Local setup
 
-This document aims to assist users in setting up Inji Web on their local
-environment, offering step-by-step instructions to replicate the
-platform’s functionality on their machine for development or testing
-purposes.
+This document aims to assist users in setting up Inji Web on their local environment, offering step-by-step instructions to replicate the platform's functionality on their machine for development or testing purposes.
 
-==== Repositories:
+=== Repositories:
 
-Clone the repositories locally to bring up your own setup. Repository
-information can be fetched from
-https://github.com/mosip/inji-web.git[*here*].
+Clone the repositories locally to bring up your own setup. Repository information can be fetched from [_here_](https://github.com/mosip/inji-web.git).
 
-*Pre-requisite:*
+_Pre-requisite:_
 
-In order to run Inji Web locally, Node 18 is required. Please follow the
-below steps to install node.
+In order to run Inji Web locally, Node 18 is required. Please follow the below steps to install node.
 
-Node 18 can be installed using https://github.com/nvm-sh/nvm[nvm]. Run
-the following commands to install node:
+Node 18 can be installed using [nvm](https://github.com/nvm-sh/nvm). Run the following commands to install node:
 
 [source,bash]
 ----
@@ -25,28 +18,22 @@ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bas
 $ nvm install 18
 ----
 
-===== Folder Structure:
+==== Folder Structure:
 
-* *helm:* folder contains helm charts required to deploy on K8S
-* *inji-web:* contains the source code and Dockerfile
-* *docker-compose:* contains docker-compose.yml, environment files, and
-service configurations.
-* https://github.com/mosip/inji-web/blob/master/README.md[README link]
+_ _helm:* folder contains helm charts required to deploy on K8S
+_ _inji-web:* contains the source code and Dockerfile
+_ _docker-compose:* contains docker-compose.yml, environment files, and service configurations.
+* [README link](https://github.com/mosip/inji-web/blob/master/README.md)
 
-'''''
+__*
 
-=== Run Inji Web locally using Docker Compose:
+== Run Inji Web locally using Docker Compose:
 
-This setup uses Docker Compose to run *DataShare Service (Service to
-store VC)*, *Mimoto Service* (Backend for Frontend) and *Inji Web*
-(Frontend) together locally, providing a simple and easy-to-manage
-environment.
+This setup uses Docker Compose to run _DataShare Service (Service to store VC)_, _Mimoto Service_ (Backend for Frontend) and _Inji Web_ (Frontend) together locally, providing a simple and easy-to-manage environment.
 
-==== Steps:
+=== Steps:
 
-[arabic]
-. *Navigate to the `+inji-web+` folder and build the Inji Web image
-locally.*
+. _Navigate to the `inji-web` folder and build the Inji Web image locally._
 
 [source,bash]
 ----
@@ -54,27 +41,27 @@ cd ./inji-web
 docker build -t inji-web:local .
 ----
 
-[arabic, start=2]
-. *Prepare the environment:*
-* In the `+docker-compose+` folder, there are configuration files and
-certificates for integrating Mimoto as the BFF (Backend for Frontend)
-for the web and mobile services.
-* *Create a `+certs+` folder* in the `+docker-compose+` directory and
-add the necessary OIDC client certificate (as mentioned below).
-* *Update the configuration files:*
-** `+mimoto-issuers-config.json+` (Add Id providers as issuers)
-** `+mimoto-trusted-verifiers.json+` (Add verifiers clientId and
-redirect URI for online sharing)
-** Update *Esignet host references* in the
-`+mimoto-default.properties+`, `+mimoto-issuers-config.json+` files.
-** Set the `+oidc_p12_password+` environment variable value as per the
-documentation.
-* *Create OIDC client* and generate `+oidckeystore.p12+`. You can follow
-the setup guide for this process
-https://docs.mosip.io/inji/inji-mobile-wallet/customization-overview/credential_providers[here].
-* *Update `+mimoto-issuers-config.json+`* with the client ID and client
-alias as per your OIDC onboarding.
-. *Start the Docker Compose environment:*
+. _Prepare the environment:_
+   * In the `docker-compose` folder, there are configuration files and certificates for integrating Mimoto as the BFF (Backend for Frontend) for the web and mobile services.
+   _ _Create a `certs` folder* in the `docker-compose` directory and add the necessary OIDC client certificate (as mentioned below).
+   _ _Update the configuration files:*
+     * `mimoto-issuers-config.json` (Add Id providers as issuers)
+     * `mimoto-trusted-verifiers.json` (Add verifiers clientId and redirect URI for online sharing)
+     _ Update _Esignet host references* in the `mimoto-default.properties`, `mimoto-issuers-config.json` files.
+     * Set the `oidc_p12_password` environment variable value as per the documentation.
+   _ _Create OIDC client* and generate `oidckeystore.p12`. You can follow the setup guide for this process [here](https://docs.mosip.io/inji/inji-mobile-wallet/customization-overview/credential_providers).
+   _ _Update `mimoto-issuers-config.json`* with the client ID and client alias as per your OIDC onboarding.
+
+. _[Optional] Configure Google OAuth Client Credentials_
+   * Refer to the [How to create Google Client Credentials](#how-to-create-google-client-credentials) section below. 
+   * Add the generated credentials to docker-compose.yml:
+[source,`yaml]
+----
+        environment:
+        - GOOGLE_OAUTH_CLIENT_ID=<your-client-id>
+        - GOOGLE_OAUTH_CLIENT_SECRET=<your-client-secret>
+----
+. _Start the Docker Compose environment:_
 
 [source,bash]
 ----
@@ -82,23 +69,20 @@ cd docker-compose
 docker-compose up -d
 ----
 
-[arabic, start=4]
-. *Stop the Docker Compose environment:*
+. _Stop the Docker Compose environment:_
 
 [source,bash]
 ----
 docker-compose down
 ----
 
-'''''
+__*
 
-=== Run Inji Web locally (Non-Docker Compose Setup):
+== Run Inji Web locally (Non-Docker Compose Setup):
 
-If you’d prefer to run Inji Web without Docker Compose, you can manually
-set up and run the app on your local machine.
+If you'd prefer to run Inji Web without Docker Compose, you can manually set up and run the app on your local machine.
 
-[arabic]
-. *Navigate to the `+inji-web+` folder and install dependencies:*
+. _Navigate to the `inji-web` folder and install dependencies:_
 
 [source,bash]
 ----
@@ -106,38 +90,60 @@ cd ./inji-web
 npm install
 ----
 
-[arabic, start=2]
-. *Start the Inji Web application:*
+. _Start the Inji Web application:_
 
 [source,bash]
 ----
 npm start
 ----
 
-[arabic, start=3]
-. *Troubleshooting CORS issues:*
-+
-If you encounter CORS errors when running the web app locally, you will
-need to set up a proxy server and configure it to point to
-`+https://api.collab.mosip.net+` for Mimoto’s API.
-* Follow this
-https://jakemccambley.medium.com/fixing-cors-errors-when-working-with-3rd-party-apis-a69dc5474804[guide]
-to set up the proxy.
-* Once the proxy server is running, update the `+Inji Web+` app to use
-the proxy by modifying the `+window.location.origin+` in the
-`+src/utils/api.ts+` file.
-. *Run tests:*
+.  _Troubleshooting CORS issues:_
+
+    If you encounter CORS errors when running the web app locally, you will need to set up a proxy server and configure it to point to `https://api.collab.mosip.net` for Mimoto's API.
+
+    * Follow this [guide](https://jakemccambley.medium.com/fixing-cors-errors-when-working-with-3rd-party-apis-a69dc5474804) to set up the proxy.
+    * Once the proxy server is running, update the `Inji Web` app to use the proxy by modifying the `window.location.origin` in the `src/utils/api.ts` file.
+. _Run tests:_
 
 [source,bash]
 ----
 npm test
 ----
+__*
+== How to create Google Client Credentials
 
-'''''
+To enable Google OAuth2.0 authentication, follow these steps:
 
-==== Summary:
+. _Go to the Google Cloud Console_:
+    * Visit [Google Cloud Console](https://console.cloud.google.com/).
 
-* *Docker Compose Setup*: This is the recommended setup for running Inji
-Web along with Mimoto locally.
-* *Standalone Setup*: If you prefer, you can run Inji Web as a
-standalone Node.js application.
+. _Create a New Project_:
+    * If you don’t already have a project, create a new one by clicking on the project dropdown and selecting "New Project".
+
+. _Enable the OAuth Consent Screen_:
+    * Navigate to "APIs & Services" > "OAuth consent screen".
+    * Select "External" for the user type and configure the required fields (e.g., app name, support email, etc.).
+    * Save the changes.
+. _Create OAuth 2.0 Credentials_:
+    * Navigate to "APIs & Services" > "Credentials".
+    * Click "Create Credentials" > "OAuth 2.0 Client IDs".
+    * Select "Web application" as the application type.
+
+. _Configure Authorized JavaScript Origins_:
+   Depending on your environment, use the following values:
+----
+      http://localhost:8099
+----
+. _Configure Authorized Redirect URIs_:
+----
+      http://localhost:8099/v1/mimoto/oauth2/callback/google
+----
+. _Save and Retrieve Client Credentials_:
+    * After saving, you will receive a `Client ID` and `Client Secret`.
+
+__*
+
+=== Summary:
+
+_ _Docker Compose Setup*: This is the recommended setup for running Inji Web along with Mimoto locally.
+_ _Standalone Setup*: If you prefer, you can run Inji Web as a standalone Node.js application.
