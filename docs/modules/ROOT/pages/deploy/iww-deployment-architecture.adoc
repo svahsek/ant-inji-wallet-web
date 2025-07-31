@@ -10,7 +10,10 @@
 
 A firewall is a network security device that monitors and filters incoming and outgoing network traffic based on an organization's established security policies. It protects against outside cyberattacks by shielding the network from malicious or unnecessary network traffic. All incoming traffic from the internet is routed through the firewall.
 
+// tag::load_balancer[]
 === Load Balancer
+Content about load balancer...
+// end::load_balancer[]
 
 A load balancer is a network device or service that evenly distributes incoming network traffic across multiple servers or resources. It operates based on predetermined rules or algorithms and helps optimize the use of these resources. The primary purpose of a load balancer is to ensure that no single server becomes overwhelmed with traffic, thereby improving performance, availability, and reliability for users accessing a particular service or application.
 
