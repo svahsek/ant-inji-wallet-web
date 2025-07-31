@@ -1,5 +1,4 @@
 * xref:index.adoc[]
 * xref:keshav.adoc[]
-** xref:build-and-deploy/local-setup.adoc[local]
-*** xref:functional-overview/try-it-out/inji-web-setup-guide.adoc[Try It Out]
-*** xref:technical/injiweb-refactoring.adoc[Refactoring]
+** xref:deploy/local-setup.adoc[local]
+*** xref:use/try-it-out/inji-web-setup-guide.adoc[Try It Out]
