@@ -12,8 +12,6 @@ A firewall is a network security device that monitors and filters incoming and o
 
 // tag::load_balancer[]
 === Load Balancer
-Content about load balancer...
-// end::load_balancer[]
 
 A load balancer is a network device or service that evenly distributes incoming network traffic across multiple servers or resources. It operates based on predetermined rules or algorithms and helps optimize the use of these resources. The primary purpose of a load balancer is to ensure that no single server becomes overwhelmed with traffic, thereby improving performance, availability, and reliability for users accessing a particular service or application.
 
@@ -24,6 +22,8 @@ Additionally, we use it in the following cases:
 . TCP communication
 . UDP communication
 . Reverse Proxy
+
+// end::load_balancer[]
 
 === IAM
 
