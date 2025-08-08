@@ -1,6 +1,6 @@
 name: ant-inji-wallet-web
 title: Ant Inji Wallet Web
-version: ~ main
+version:
 nav:
 - modules/ROOT/nav.adoc
 - modules/module-one/nav.adoc
