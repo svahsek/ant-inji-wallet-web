@@ -1,11 +1,12 @@
 // * xref:keshav.adoc[]
 //Turn this as per antora's nav.dov structure
 
-* xref:index.adoc[Index]
-* Overview
+* xref:index.adoc[Home]
+
+** xref:overview/README.adoc[Overview]
 ** xref:overview/features.adoc[Features]
-** xref:overview/README.adoc[README]
 * xref:README.adoc[README]
+
 * Releases
 ** xref:releases/README.adoc[README]
 ** Version 0.8.0
@@ -33,26 +34,35 @@
 *** xref:deploy/local-setup.adoc[Local Setup]
 *** xref:deploy/readme.adoc[README]
 * xref:use/try-it-out/inji-web-setup-guide.adoc[Try It Out]
-* Develop
+
+
+* xref:develop/README.adoc[Develop]
 ** xref:develop/architecture.adoc[Architecture]
 ** Backend Services
 *** xref:develop/backend-services/configurations.adoc[Configurations]
 *** xref:develop/backend-services/esignet-authentication-layer.adoc[Esignet Authentication Layer]
 *** xref:develop/backend-services/mimoto-bff.adoc[Mimoto BFF]
 *** xref:develop/backend-services/README.adoc[README]
-** Customizations
+
+* xref:develop/customizations/README.adoc[Customizations]
 *** xref:develop/customizations/credential-providers.adoc[Credential Providers]
 *** xref:develop/customizations/customize-vc-pdf-template.adoc[Customize VC PDF Template]
 *** xref:develop/customizations/locale-customization.adoc[Locale Customization]
-*** xref:develop/customizations/README.adoc[README]
+
 *** xref:develop/customizations/ui-customizations.adoc[UI Customizations]
-** xref:develop/README.adoc[README]
+
 ** xref:develop/supported-browsers.adoc[Supported Browsers]
 ** xref:develop/technical-stack.adoc[Technical Stack]
-* Use
-** xref:use/end-user-guide.adoc[End User Guide]
-** xref:use/README.adoc[README]
+
+
+* xref:use/README.adoc[Test]
+
 ** Try It Out
-*** xref:use/try-it-out/inji-web-setup-guide.adoc[Inji Web Setup Guide]
 *** xref:use/try-it-out/README.adoc[README]
+
+
+** xref:use/end-user-guide.adoc[End User Guide]
 ** xref:use/workflow.adoc[Workflow]
+
+
+* xref:use/try-it-out/inji-web-setup-guide.adoc[Inji Web Setup Guide]
